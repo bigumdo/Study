@@ -107,6 +107,19 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        EndDragEvent?.Invoke(this);
+        isDragging = false;
+        _canvasGraphicRayCaster.enabled = true;
+        _imageCompo.raycastTarget = true;
+
+        StartCoroutine(FrameWait());
+
+        IEnumerator FrameWait()
+        {
+            yield return new WaitForEndOfFrame();
+            wasDragged = false;
+        }
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
