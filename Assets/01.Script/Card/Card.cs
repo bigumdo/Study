@@ -17,6 +17,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public bool isDragging;
     [HideInInspector] public bool wasDragged;
 
+    [Header("Selection")]
+    public bool selected;
+    public float selectionOffset = 50;
+    private float _pointerDownTime;
+    private float _pointerUpTime;
+
     [Header("Events")]  
     [HideInInspector] public UnityEvent<Card> PointerEnterEvent;
     [HideInInspector] public UnityEvent<Card> PointerExitEvent;
@@ -33,12 +39,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Rect _screenRect;
     private Camera _mainCam;
 
-    private void Start()
-    {
-        //For debugging purpose, will be delete meanwhile...
-        Canvas canvas = GetComponentInParent<Canvas>();
-        Initialize(canvas);
-    }
+    //private void Start()
+    //{
+    //    //For debugging purpose, will be delete meanwhile...
+    //    Canvas canvas = GetComponentInParent<Canvas>();
+    //    Initialize(canvas);
+    //}
 
     private void Update()
     {
@@ -124,7 +130,16 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        //if not mouse left click, then return
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        PointerDownEvent?.Invoke(this);
+        _pointerDownTime = Time.time;
+
     }
+
+    #region Pointer Section
+    //Pointer mean click or touch
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -141,5 +156,35 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        float pointDownThreshold = 0.2f;
+        _pointerUpTime = Time.time;
+
+        //짧게 클린한건지 알아보기 위해
+        bool isDrag = _pointerUpTime - _pointerDownTime > pointDownThreshold;
+        PointerUpEvent?.Invoke(this, isDrag);
+
+        if (isDrag) return;
+        if (wasDragged) return;
+
+        selected = !selected;
+        SelectEvent?.Invoke(this, selected);
+
+        if (selected)
+            transform.localPosition += transform.up * selectionOffset;
+        else
+            transform.localPosition = Vector3.zero;
+
     }
+    #endregion
+
+    public void DeSelect()
+    {
+        if (selected)
+        {
+            selected = false;
+        }
+    }
+
 }
