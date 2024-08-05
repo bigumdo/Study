@@ -39,6 +39,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Rect _screenRect;
     private Camera _mainCam;
 
+    public int SlotIndex => transform.parent.GetSiblingIndex();
+    public int SiblingAmount => transform.parent.parent.childCount;
+
     //private void Start()
     //{
     //    //For debugging purpose, will be delete meanwhile...
@@ -132,10 +135,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         //if not mouse left click, then return
         if (eventData.button != PointerEventData.InputButton.Left) return;
-
+        
         PointerDownEvent?.Invoke(this);
         _pointerDownTime = Time.time;
-
     }
 
     #region Pointer Section
@@ -145,7 +147,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         PointerEnterEvent?.Invoke(this);
         isHovering = true;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)
