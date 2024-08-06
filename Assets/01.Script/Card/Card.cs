@@ -32,6 +32,10 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card> EndDragEvent;
     [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
 
+    [Header("Visual")]
+    [SerializeField] private CardVisual _cardVisualPrefab;
+    [HideInInspector] public CardVisual cardVisual;
+
     private Canvas _cardCanvas;
     private Image _imageCompo;
     private Vector3 _offset;
@@ -55,13 +59,17 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         DragFollow();
     }
 
-    public void Initialize(Canvas canvas)
+    public void Initialize(Canvas canvas, Transform visualHolderTrm)
     {
         _mainCam = Camera.main;
         _cardCanvas = canvas;
         _imageCompo = GetComponent<Image>();
         _canvasGraphicRayCaster = canvas.GetComponent<GraphicRaycaster>();
         CalculateScreenRect();
+
+        cardVisual = Instantiate(_cardVisualPrefab, visualHolderTrm);
+        cardVisual.Initialize(this);
+
     }
 
     private void CalculateScreenRect()

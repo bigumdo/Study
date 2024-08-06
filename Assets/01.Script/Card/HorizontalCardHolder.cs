@@ -8,7 +8,7 @@ namespace Gondr
     public class HorizontalCardHolder : MonoBehaviour
     {
         [SerializeField] private Card _selectedCard;
-        [SerializeReference] private Card _hoveredCard;
+        [SerializeField] private Card _hoveredCard;
 
         [SerializeField] private GameObject _slotPrefab;
 
@@ -17,6 +17,8 @@ namespace Gondr
         [Header("Spawn Settings")]
         [SerializeField] private int _cardToSpawn = 7;
         public List<Card> cards;
+        [SerializeField] private Transform _visualHolderTrm;
+
 
         private bool _isCrossing = false;
         private RectTransform _rectTrm;
@@ -38,7 +40,7 @@ namespace Gondr
                 card.BeginDragEvent.AddListener(BeginDrag);
                 card.EndDragEvent.AddListener(EndDrag);
                 card.name = $"Card_{cardIndex.ToString()}";
-                card.Initialize(_cardCanvas);
+                card.Initialize(_cardCanvas, _visualHolderTrm);
                 cardIndex++;
             });
         }
