@@ -43,8 +43,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Rect _screenRect;
     private Camera _mainCam;
 
+    //GetSiblingIndex 자신의 자식 번호를 자겨오는 함수
     public int SlotIndex => transform.parent.GetSiblingIndex();
     public int SiblingAmount => transform.parent.parent.childCount;
+    public float NormalizedPosition => ((float)SlotIndex).Remap(0, SiblingAmount - 1, 0, 1);
+
 
     //private void Start()
     //{

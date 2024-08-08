@@ -5,15 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SO/CurveParamSO")]
 public class CurveParamSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AnimationCurve positioning;
+    public float positioningInfluence = .1f;
+    public AnimationCurve rotation;
+    public float rotationInfluence = 10f;
 }

@@ -23,6 +23,12 @@ public class CardVisual : MonoBehaviour
     [SerializeField] private Transform _shakeParentTrm, _tiltParentTrm;
     [SerializeField] private Image _cardImage;
 
+    [Header("Curve")]
+    [SerializeField] private CurveParamSO _curve;
+    private float _curveYOffset;
+    private float _curveRotationOffset;
+
+
     [Header("Follow parameter")]
     [SerializeField] private float _followSpeed = 30f;
 
