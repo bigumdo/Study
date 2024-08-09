@@ -36,6 +36,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [SerializeField] private CardVisual _cardVisualPrefab;
     [HideInInspector] public CardVisual cardVisual;
 
+    [Header("Curve")]
+    [SerializeField] private CurveParamSO _curve;
+    private float _curveYOffset;
+    private float _curveRotationOffset;
+
     private Canvas _cardCanvas;
     private Image _imageCompo;
     private Vector3 _offset;
