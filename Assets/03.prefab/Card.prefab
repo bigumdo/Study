@@ -176,3 +176,4 @@ MonoBehaviour:
   _cardVisualPrefab: {fileID: 1065985341448159108, guid: 4a9d0460fb4930d40a29036504555f64,
     type: 3}
   cardVisual: {fileID: 0}
+  _curve: {fileID: 11400000, guid: e4078f045226c494892b1b0aae1f97aa, type: 2}

@@ -214,6 +214,7 @@ MonoBehaviour:
   _shakeParentTrm: {fileID: 1316711976448986209}
   _tiltParentTrm: {fileID: 7549305038757159426}
   _cardImage: {fileID: 3643696559116963785}
+  _curve: {fileID: 11400000, guid: e4078f045226c494892b1b0aae1f97aa, type: 2}
   _followSpeed: 30
 --- !u!1 &8569275871903178636
 GameObject:

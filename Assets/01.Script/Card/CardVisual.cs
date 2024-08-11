@@ -38,6 +38,32 @@ public class CardVisual : MonoBehaviour
         _shadowDistance = visualShadowTrm.localPosition;
     }
 
+    private void Update()
+    {
+        if (!_initialize || parentCard == null) return;
+
+        HandPositioning();
+        SmoothFollow();
+    }
+
+    private void HandPositioning()
+    {
+        float cardIndexNormal = parentCard.NormalizedPosition;
+        int cardSiblingCnt = parentCard.SiblingAmount;
+        _curveYOffset = _curve.positioning.Evaluate(cardIndexNormal)
+                        * _curve.positioningInfluence
+                        * cardSiblingCnt;
+        _curveYOffset = cardSiblingCnt < 5 ? 0 : _curveYOffset; //자식의 갯수가 5보다 작으면 0으로
+        _curveRotationOffset = _curve.rotation.Evaluate(cardIndexNormal);
+    }
+
+    private void SmoothFollow()
+    {
+        Vector3 verticalOffset = Vector3.up * (parentCard.isDragging ? 0 : _curveYOffset);
+        transform.position = Vector3.Lerp(transform.position, _cardTrm.position + verticalOffset, _followSpeed * Time.deltaTime);
+    }
+
+
     public void Initialize(Card target)
     {
         parentCard = target;
