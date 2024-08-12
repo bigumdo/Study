@@ -621,7 +621,7 @@ MonoBehaviour:
   _slotPrefab: {fileID: 3202325909221110864, guid: baccfd2671f9ac6499bac43116aa5967,
     type: 3}
   _cardCanvas: {fileID: 250125533}
-  _cardToSpawn: 5
+  _cardToSpawn: 10
   cards: []
   _visualHolderTrm: {fileID: 355639066}
 --- !u!114 &1652023890

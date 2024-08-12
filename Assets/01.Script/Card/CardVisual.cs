@@ -36,6 +36,11 @@ public class CardVisual : MonoBehaviour
     [SerializeField] private float _rotationAmount = 20, _rotationSpeed = 20;
     [SerializeField] private float _autoTiltAmount = 30, _manualTiltAmount = 20, _tiltSpeed = 20;
 
+    [Header("Swap parameter")]
+    [SerializeField] private bool _swapAnimation = true;
+    [SerializeField] private float _swapRotationAngle = 30f, _swapTransition = 0.15f;
+    [SerializeField] private int _swapVibrato = 5;
+
     private void Start()
     {
         _shadowDistance = visualShadowTrm.localPosition;
@@ -49,6 +54,12 @@ public class CardVisual : MonoBehaviour
         SmoothFollow();
         FollowRotation();
     }
+
+    public void UpdateIndex()
+    {
+        transform.SetSiblingIndex(parentCard.SlotIndex);
+    }
+
 
     private void FollowRotation()
     {
