@@ -32,6 +32,9 @@ public class CardVisual : MonoBehaviour
     [Header("Follow parameter")]
     [SerializeField] private float _followSpeed = 30f;
 
+    [Header("Rotation parameter")]
+    [SerializeField] private float _rotationAmount = 20, _rotationSpeed = 20;
+    [SerializeField] private float _autoTiltAmount = 30, _manualTiltAmount = 20, _tiltSpeed = 20;
 
     private void Start()
     {
@@ -44,7 +47,21 @@ public class CardVisual : MonoBehaviour
 
         HandPositioning();
         SmoothFollow();
+        FollowRotation();
     }
+
+    private void FollowRotation()
+    {
+        Vector3 movement = (transform.position - _cardTrm.position); //Calculate parent movement;
+        _movementDelta = Vector3.Lerp(_movementDelta, movement, 25 * Time.deltaTime);
+        //smooth rotate which dragging item, hard rotating which sorting item
+
+        Vector3 movementRot = (parentCard.isDragging ? _movementDelta : movement) * _rotationAmount;
+        _rotationDelta = Vector3.Lerp(_rotationDelta, movementRot, _rotationSpeed * Time.deltaTime);
+        Vector3 angles = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(angles.x, angles.y, Mathf.Clamp(_rotationDelta.x, -60f, 60f));
+    }
+
 
     private void HandPositioning()
     {
