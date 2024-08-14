@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 
 {
-
     [Header("Movement")]
     [SerializeField] private float _moveSpeedLimit = 50f;
 
@@ -81,7 +80,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         Vector2 bottomRight = _mainCam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _mainCam.transform.position.z));
         Vector2 size = bottomRight - topLeft;
         _screenRect = new Rect(topLeft, size);
-    }
+    } 
 
     private void ClampPosition()
     {
