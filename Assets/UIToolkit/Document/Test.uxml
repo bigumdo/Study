@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/TestStyle.uss?fileID=7433441132597879392&amp;guid=37c8407af2d697342a5285e64017fa5a&amp;type=3#TestStyle" />
+    <Style src="project://database/Assets/UIToolkit/TestStyle.uss?fileID=7433441132597879392&amp;guid=37c8407af2d697342a5285e64017fa5a&amp;type=3#TestStyle" />
     <ui:VisualElement name="VisualElement" style="background-color: rgba(0, 0, 0, 0); align-self: auto; width: 100%; height: 100%; align-items: stretch; -unity-font: initial; -unity-font-definition: url(&quot;project://database/Assets/UIToolkit/Font/Freesentation-1Thin%20SDF.asset?fileID=11400000&amp;guid=df425c986ac7c0a409356cab9a0b3360&amp;type=2#Freesentation-1Thin SDF&quot;);">
         <ui:VisualElement style="background-color: rgba(255, 0, 0, 0); width: 100%; height: 50%; justify-content: space-around; flex-direction: row; align-items: flex-end;">
             <ui:VisualElement style="background-image: url(&quot;project://database/Assets/UIToolkit/Image/Hyperspace%20-%20Floating.png?fileID=2800000&amp;guid=bf6514e035f50264793f2b35cecd0bd2&amp;type=3#Hyperspace - Floating&quot;); width: 400px; height: 600px; align-items: stretch; justify-content: space-between; align-self: flex-end; flex-direction: row-reverse;" />
@@ -14,5 +14,6 @@
                 <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button-blue" />
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 0; width: 500px; height: 500px; flex-shrink: 0.5;" />
     </ui:VisualElement>
 </ui:UXML>
