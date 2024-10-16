@@ -7,13 +7,21 @@
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgb(255, 255, 255); width: 100%; height: 50%; flex-direction: column; align-items: flex-start; justify-content: space-between; align-self: auto;">
             <ui:VisualElement name="VisualElement" style="width: 100%; height: 100%;">
-                <ui:Label tabindex="-1" text="연습" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 70px; -unity-text-align: upper-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 30px; padding-right: 0; padding-bottom: 30px; padding-left: 0; -unity-font-style: bold; -unity-font: url(&quot;project://database/Assets/UIToolkit/Font/Freesentation-1Thin.ttf?fileID=12800000&amp;guid=cd89f13e606f8e54b8c4a27f338e3f27&amp;type=3#Freesentation-1Thin&quot;); border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
-                <ui:Label tabindex="-1" text="게임의 정의는 학자에 따라 상이하나, 한 가지 대전제이자 공통점이 있다면 게임은 정해진 규칙(룰)에 따라 통제되는 개념이라는 것이다. 규칙이 없다면 게임이 성립하지 않는다. 이에 따르면, 레크리에이션 가운데에서도 특히 어떤 놀이나 여가 활동의 규칙을 설정하고 구체화한 것이 게임이라고 할 수 있다.&#10;&#10;많은 게임은 플레이어에게 어떤 방법으로든 룰을 위반하지 않는 선에서 문제를 제시하고 이를 플레이어가 능동적으로 선택해 해결하도록 유도한다. 문제와 위기를 최대한 배제한 게임조차 환경적 요소들을 제시한 뒤 하나를 선택하게 하는 식으로 플레이어를 고민하게 만든다. 예를 들어 농장을 경작하는 게임에서는 해당 타일에 사과나무를 심을 것인지 바나나 모종을 심을 것인지 고민하게 만든다. 갈림길을 하나 만들고 길 각각에 다른 풍경을 넣는 것만으로도 기본적인 게임은 완성된다." parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-wrap: nowrap; flex-shrink: 0; align-items: auto; align-self: auto; white-space: normal; font-size: 35px; padding-top: 20px; padding-right: 50px; padding-bottom: 20px; padding-left: 50px; -unity-font-style: bold; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                <ui:Label tabindex="-1" text="연습" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="text--title" />
+                <ui:Label tabindex="-1" text="게임의 정의는 학자에 따라 상이하나, 한 가지 대전제이자 공통점이 있다면 게임은 정해진 규칙(룰)에 따라 통제되는 개념이라는 것이다. 규칙이 없다면 게임이 성립하지 않는다. 이에 따르면, 레크리에이션 가운데에서도 특히 어떤 놀이나 여가 활동의 규칙을 설정하고 구체화한 것이 게임이라고 할 수 있다.&#10;&#10;많은 게임은 플레이어에게 어떤 방법으로든 룰을 위반하지 않는 선에서 문제를 제시하고 이를 플레이어가 능동적으로 선택해 해결하도록 유도한다. 문제와 위기를 최대한 배제한 게임조차 환경적 요소들을 제시한 뒤 하나를 선택하게 하는 식으로 플레이어를 고민하게 만든다. 예를 들어 농장을 경작하는 게임에서는 해당 타일에 사과나무를 심을 것인지 바나나 모종을 심을 것인지 고민하게 만든다. 갈림길을 하나 만들고 길 각각에 다른 풍경을 넣는 것만으로도 기본적인 게임은 완성된다." parse-escape-sequences="true" display-tooltip-when-elided="true" name="Paragraph" class="text--paragraph" />
             </ui:VisualElement>
             <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 100%; padding-right: 100px; padding-left: 100px; justify-content: center; align-self: auto; align-items: center; height: 240px;">
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button-blue" />
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button_Open" class="button-blue" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 0; width: 500px; height: 500px; flex-shrink: 0.5;" />
+        <ui:VisualElement name="Container_Bottom" style="flex-grow: 0; width: 100%; height: 100%; flex-shrink: 1; position: absolute;">
+            <ui:VisualElement name="Scrim" class="scrim" />
+            <ui:VisualElement name="BottomSheet" class="bottomsheet">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text--title" style="padding-bottom: 50px; padding-top: 50px;" />
+                <ui:VisualElement name="Image_Girl" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UIToolkit/Image/Hyperspace%20-%20Projector.png?fileID=2800000&amp;guid=aa3c3f9157d67b34cbb3753038deb043&amp;type=3#Hyperspace - Projector&quot;); width: 500px; height: 500px;" />
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text--paragraph" style="align-items: auto; -unity-text-align: upper-left; width: auto; padding-bottom: 100px; padding-top: 100px;" />
+                <ui:Button text="&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button_Close" style="position: absolute; right: 50px; color: rgba(27, 27, 27, 0); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/UIToolkit/Image/390423-200.png?fileID=2800000&amp;guid=41bd470ee36ee854a9dce3dfd03e1a9e&amp;type=3#390423-200&quot;); width: 100px; height: 100px; -unity-background-image-tint-color: rgba(137, 137, 137, 0.35);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
