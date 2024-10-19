@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     private Button _closeButton;
     private VisualElement _scrim;
     private VisualElement _bottomSheet;
+    private VisualElement _boy;
 
     private void Start()
     {
@@ -19,7 +20,8 @@ public class UIController : MonoBehaviour
         var root = GetComponent<UIDocument>().rootVisualElement;
         // root에서 Container_Bottom이라는 이름의 visual Element를 가져온다.
         _bottomContainer = root.Q<VisualElement>("Container_Bottom");
-
+        //Boy
+        _boy = root.Q<VisualElement>("Image_Boy");
         // Button_Open라 되어 있는 button을 가져옴
         _openButton = root.Q<Button>("Button_Open");
         // Button_Close라고 되어 있는 button을 가져옴
@@ -36,6 +38,22 @@ public class UIController : MonoBehaviour
         _openButton.RegisterCallback<ClickEvent>(OnOpenButtonClicked);
         //clickEvnet가 실행되면 OnCloseButtonClicked를 실행시킨다.
         _closeButton.RegisterCallback<ClickEvent>(OnCloseButtonClicked);
+
+        //애니메이션 바로 시작하고 한 프레임이 지난 후에 실행해야하기 때문에
+        Invoke( "AnimationBoy",1f);
+    }
+
+    
+
+    private void AnimationBoy()
+    {
+        _boy.RemoveFromClassList("image--boy--inair");
+    }
+
+    private void Update()
+    {
+        //클래스가 있는지
+        Debug.Log(_boy.ClassListContains("image--boy--inair"));
     }
 
     private void OnCloseButtonClicked(ClickEvent evt)

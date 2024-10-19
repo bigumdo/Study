@@ -111,3 +111,19 @@
 .scrim--fadein {
     opacity: 1;
 }
+
+.image--boy {
+    background-image: url("project://database/Assets/UIToolkit/Image/Hyperspace%20-%20Floating.png?fileID=2800000&guid=bf6514e035f50264793f2b35cecd0bd2&type=3#Hyperspace - Floating");
+    width: 400px;
+    height: 600px;
+    align-items: stretch;
+    justify-content: space-between;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    transition-duration: 2s;
+    translate: 0 0;
+}
+
+.image--boy--inair {
+    translate: -500px -400px;
+}
