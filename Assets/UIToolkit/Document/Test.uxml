@@ -14,12 +14,12 @@
                 <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button_Open" class="button-blue" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Container_Bottom" style="flex-grow: 0; width: 100%; height: 100%; flex-shrink: 1; position: absolute;">
+        <ui:VisualElement name="Container_Bottom" style="flex-grow: 0; width: 100%; height: 100%; flex-shrink: 1; position: absolute; display: none;">
             <ui:VisualElement name="Scrim" class="scrim" />
-            <ui:VisualElement name="BottomSheet" class="bottomsheet">
+            <ui:VisualElement name="BottomSheet" class="bottomsheet" style="display: flex;">
                 <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text--title" style="padding-bottom: 50px; padding-top: 50px;" />
-                <ui:VisualElement name="Image_Girl" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UIToolkit/Image/Hyperspace%20-%20Projector.png?fileID=2800000&amp;guid=aa3c3f9157d67b34cbb3753038deb043&amp;type=3#Hyperspace - Projector&quot;); width: 500px; height: 500px;" />
-                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text--paragraph" style="align-items: auto; -unity-text-align: upper-left; width: auto; padding-bottom: 100px; padding-top: 100px;" />
+                <ui:VisualElement name="Image_Girl" class="image--girl image--girl--down" />
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Girl_Text" class="text--paragraph" style="align-items: auto; -unity-text-align: upper-left; width: auto; padding-bottom: 100px; padding-top: 100px;" />
                 <ui:Button text="&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button_Close" style="position: absolute; right: 50px; color: rgba(27, 27, 27, 0); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/UIToolkit/Image/390423-200.png?fileID=2800000&amp;guid=41bd470ee36ee854a9dce3dfd03e1a9e&amp;type=3#390423-200&quot;); width: 100px; height: 100px; -unity-background-image-tint-color: rgba(137, 137, 137, 0.35);" />
             </ui:VisualElement>
         </ui:VisualElement>

@@ -127,3 +127,15 @@
 .image--boy--inair {
     translate: -500px -400px;
 }
+
+.image--girl {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/UIToolkit/Image/Hyperspace%20-%20Projector.png?fileID=2800000&guid=aa3c3f9157d67b34cbb3753038deb043&type=3#Hyperspace - Projector");
+    width: 500px;
+    height: 500px;
+    transition-duration: 1s;
+}
+
+.image--girl--down {
+    translate: 0 50px;
+}
