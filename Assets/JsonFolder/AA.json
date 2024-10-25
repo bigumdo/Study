@@ -1,1 +1,16 @@
-["Test1","Test2","Test3","Test4","Test5","Test6"]
+{
+  "name": null,
+  "age": 0,
+  "money": 0,
+  "data": [
+    "Test1",
+    "Test2",
+    "Test3",
+    "Test4",
+    "Test5",
+    "Test6"
+  ],
+  "tags": {
+    "Test": "OK"
+  }
+}

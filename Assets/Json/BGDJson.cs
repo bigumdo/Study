@@ -37,8 +37,8 @@ public static class BGDJson
 
     public static void ListToJson<T>(T type,string name)
     {
-        FileStream stream = new FileStream(Path.Combine(jsonPath, name + ".json"), FileMode.OpenOrCreate);
-        string jsonData = JsonConvert.SerializeObject(type);
+        FileStream stream = new FileStream(Path.Combine(jsonPath, name + ".json"), FileMode.Truncate);
+        string jsonData = JsonConvert.SerializeObject(type, Formatting.Indented);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
         stream.Write(data, 0, data.Length);
         stream.Close();
