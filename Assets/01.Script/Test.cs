@@ -31,10 +31,9 @@ public class Test : MonoBehaviour
         list.Add("Test6");
         JsonDataTast jsontest = new JsonDataTast(list);
 
-        BGDJson.ListToJson(jsontest, "AA");
-        List<string> list2 = new List<string>();
+        BGDJson.ToJson(jsontest, "AA",true);
         JsonDataTast test;
-        test = BGDJson.ListFromJson<JsonDataTast>("AA");
+        test = BGDJson.FromJson<JsonDataTast>("AA");
         foreach (var item in test.data)
         {
             Debug.Log(item);
@@ -49,7 +48,7 @@ public class Test : MonoBehaviour
         list.Add("Test21");
         list.Add("Test22");
         list.Add("Test23");
-        BGDJson.ListToJson(list, "AA");
+        BGDJson.ListToJson(list, "AA", true);
         List<string> list2 = new List<string>();
         list2 = BGDJson.ListFromJson<List<string>>("AA");
         foreach(var item in list2)

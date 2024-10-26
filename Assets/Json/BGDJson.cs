@@ -8,7 +8,7 @@ using System.Text;
 public static class BGDJson
 {
 
-    private static string jsonPath = Application.dataPath + "/JsonFolder/";
+    private readonly static string jsonPath = Application.dataPath + "/JsonFolder/";
 
     private static void CreateFolder()
     {
@@ -21,24 +21,42 @@ public static class BGDJson
         }
     }
 
+    private static string CreateJsonfileName(string fileName)
+    {
+        return Path.Combine(jsonPath, fileName + ".json");
+    }
+
     public static void ToJson<T>(T type,string name, bool s)
     {
+        CreateFolder();
         string jsonData = JsonUtility.ToJson(type, s);
-        string path = Path.Combine(jsonPath, name + ".json");
+        string path = CreateJsonfileName(name);
         File.WriteAllText(path, jsonData);
     }
 
     public static T FromJson<T>(string name)
     {
-        string path = Path.Combine(jsonPath, name + ".json");
-        string data =  File.ReadAllText(path);
+        CreateFolder();
+        string path = CreateJsonfileName(name);
+        if (!File.Exists(path))
+        {
+            Debug.Log("존재 하지 않습니다.");
+            T t = default(T);
+            ToJson<T>(t,name,true);
+            Debug.Log("생성하였습니다.");
+            return t;
+        }
+        string data = File.ReadAllText(path);
         return JsonUtility.FromJson<T>(data);
+
     }
 
-    public static void ListToJson<T>(T type,string name)
+    public static void ListToJson<T>(T type,string name,bool formatting)
     {
-        FileStream stream = new FileStream(Path.Combine(jsonPath, name + ".json"), FileMode.Truncate);
-        string jsonData = JsonConvert.SerializeObject(type, Formatting.Indented);
+        CreateFolder();
+        string path = CreateJsonfileName(name);
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        string jsonData = JsonConvert.SerializeObject(type, formatting ?  Formatting.Indented : Formatting.None);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
         stream.Write(data, 0, data.Length);
         stream.Close();
@@ -46,7 +64,17 @@ public static class BGDJson
 
     public static T ListFromJson<T>(string name)
     {
-        FileStream stream = new FileStream(Path.Combine(jsonPath, name + ".json"), FileMode.Open);
+        CreateFolder();
+        string path = CreateJsonfileName(name);
+        if (!File.Exists(path))
+        {
+            Debug.Log("존재 하지 않습니다.");
+            T t = default(T);
+            ListToJson<T>(t, name, true);
+            Debug.Log("생성하였습니다.");
+            return t;
+        }
+        FileStream stream = new FileStream(path, FileMode.Open);
         byte[] data = new byte[stream.Length];
         stream.Read(data, 0, data.Length);
         stream.Close();
