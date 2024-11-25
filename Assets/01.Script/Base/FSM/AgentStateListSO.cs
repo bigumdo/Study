@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class AgentStateListSO : MonoBehaviour
+public enum FSMState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Idle, Move, Attack,
+    Jump, Fall, Dash,
+    JumpAttack, DashAttack, React
+}
 
-    // Update is called once per frame
-    void Update()
+public class AgentStateListSO : ScriptableObject
+{
+    [CreateAssetMenu(menuName = "SO/FSM/AgentStateListSO")]
+    public class EntityStateListSO : ScriptableObject
     {
-        
+        public List<StateSO> states;
     }
 }

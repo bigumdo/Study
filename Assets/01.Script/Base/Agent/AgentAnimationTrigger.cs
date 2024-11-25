@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class AgentAnimationTrigger : MonoBehaviour
+public class AgentAnimationTrigger : MonoBehaviour,IAgentComponent
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public event Action OnAnimationEndTriggerEvent;
+    public event Action OnAttackTriggerEvent;
+
+    protected Agent _agent;
+
+    public void Initialize(Agent agent)
     {
-        
+        _agent = agent;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected virtual void AnimationEnd() => OnAnimationEndTriggerEvent?.Invoke();
+    protected virtual void AttackTrigger() => OnAttackTriggerEvent?.Invoke();
 }

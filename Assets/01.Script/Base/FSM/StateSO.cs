@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StateSO : MonoBehaviour
+[CreateAssetMenu(fileName = "StateSO", menuName = "SO/FSM/StateSO")]
+public class StateSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public FSMState stateName;
+    public string className;
+    public AnimParamSO animParam;
 }

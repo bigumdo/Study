@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimParamSO : MonoBehaviour
+[CreateAssetMenu(menuName ="SO/Anim/ParamSO")]
+public class AnimParamSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum AnimType
     {
-        
+        Boolean, Float, Integer, Trigger
     }
 
-    // Update is called once per frame
-    void Update()
+    public string paramName;
+    public AnimType paramType;
+    public int hashValue;
+
+    //¿ŒΩ∫∆Â≈Õ πŸ≤ ∂ß ∏∂¥Ÿ Ω««‡µ 
+    public void OnValidate()
     {
-        
+        hashValue = Animator.StringToHash(paramName);
     }
 }
