@@ -34,12 +34,12 @@ public class CardVisual : MonoBehaviour
 
     [Header("Rotation parameter")]
     [SerializeField] private float _rotationAmount = 20, _rotationSpeed = 20;
-    [SerializeField] private float _autoTiltAmount = 30, _manualTiltAmount = 20, _tiltSpeed = 20;
-
-    [Header("Swap parameter")]
-    [SerializeField] private bool _swapAnimation = true;
-    [SerializeField] private float _swapRotationAngle = 30f, _swapTransition = 0.15f;
-    [SerializeField] private int _swapVibrato = 5;
+    //[SerializeField] private float _autoTiltAmount = 30, _manualTiltAmount = 20, _tiltSpeed = 20;
+    //
+    //[Header("Swap parameter")]
+    //[SerializeField] private bool _swapAnimation = true;
+    //[SerializeField] private float _swapRotationAngle = 30f, _swapTransition = 0.15f;
+    //[SerializeField] private int _swapVibrato = 5;
 
     private void Start()
     {
