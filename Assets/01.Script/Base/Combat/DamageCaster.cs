@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageCaster : MonoBehaviour
+public abstract class DamageCaster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected int _maxHitCount;
+    [SerializeField] protected ContactFilter2D _contactFilter;
+    protected Collider2D[] _hitResults;
+
+    protected Agent _owner;
+
+    public virtual void InitCaster(Agent owner)
     {
-        
+        _hitResults = new Collider2D[_maxHitCount];
+        _owner = owner;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract bool CastDamage(float damage, Vector2 knockBack);
 }
