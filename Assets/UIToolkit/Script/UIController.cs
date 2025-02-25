@@ -68,6 +68,9 @@ public class UIController : MonoBehaviour
             _bottomContainer.style.display = DisplayStyle.None;
         }
     }
+    private void Update()
+    {
+    }
 
     private void AnimationBoy()
     {
